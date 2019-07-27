@@ -2,6 +2,8 @@
 
 Chapters, code, and organizational materials for the book "Software Design Methods with Wolfram Language".
 
+***The book is not finished yet -- it is a work in progress...***   
+
 ## In brief
 
 The goal of this book is to introduce several methodologies for software design with Wolfram Language (WL).
@@ -15,15 +17,15 @@ Concrete examples are presented and discussed.
 
 ## Videos
 
-Below is given a list of some videos with presentations of mine that discuss the central topics in this book. 
+Below are given links to couple of videos with presentations of mine that discuss the central topics in this book. 
 
 - ["Object-Oriented Design Patterns"](https://www.youtube.com/watch?v=4Q6hOx63b08).
 
 - ["Monadic Programming: With Application to Data Analysis, Machine Learning and Language Processing"](https://www.youtube.com/watch?v=_cIFA5GHF58).
 
 -----
-Anton Antonov
-Windermere, Florida, USA
+Anton Antonov   
+Windermere, Florida, USA   
 2019-07-27
 
 
