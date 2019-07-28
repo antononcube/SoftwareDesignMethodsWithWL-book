@@ -7,25 +7,52 @@ This repository has chapters, code, and organizational materials for the book
 
 ## In brief
 
-The goal of this book is to introduce several methodologies for software design with Wolfram Language (WL).
+The goal of this book is to show how to apply several popular methodologies for software design with Wolfram Language (WL).
 
 WL is a general, multi-paradigm programming language. WL is mostly a functional programming language, but 
 it also can be used in an procedural and Object-Oriented Programming (OOP) manner. 
-Of course, since WL is functional can be also used for the creation of Domain Specific Languages (DSL's). 
+Of course, since WL is functional it can be also easily used for the creation of Domain Specific Languages (DSL's). 
 
 This book gives concrete directions how to do OOP, Monadic Programming, and DSL designs with WL. 
 Concrete examples are presented and discussed.
+
+The creation of call graphs and Universal Modeling Language (UML) diagrams is also discussed.
 
 ## Mission statement
 
 This book primary goal is to give concrete technical guidance for the application and utilization in 
 [WL](https://en.wikipedia.org/wiki/Wolfram_Language) 
 of 
-[OOP Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns),
-[Monadic programming](https://en.wikipedia.org/wiki/Monad_(functional_programming)).
+[OOP Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) and
+[Monadic Programming](https://en.wikipedia.org/wiki/Monad_(functional_programming)).
 Additional goals are to give directions for making
 [DSL's](https://en.wikipedia.org/wiki/Domain-specific_language)
 and analyze code with code derived dependency graphs and UML diagrams.
+
+## What to read?
+
+Except Part 1 and Part 6 all other parts can be read independently.
+
+If you are not familiar with OOP and Design Patterns it is better to skip Part 2, "Object Oriented Programming Design Patterns".
+The rest of the book -- Monadic Programming, DSL's, call graphs -- is largely independent of Part 2.
+
+Part 3, "Monadic Programming", gives all theoretical knowledge and practical know-how to design and use software monads.
+A good preliminary read for Part 3 is [PW1].
+
+Part 4, "Domain Specific Languages", has a DSL making overview chapter that is an easy read. 
+The rest of the Part 4 chapters are more technical.
+
+Part 5, "Additional topics", has chapters that might of general interest and although related
+to the rest of the book largely independent from it.
+
+Part 6, "Example applications", discusses non-trivial examples of utilizing OOP Design Patterns and Monadic Programming. 
+
+## Comparisons with other programming languages
+
+The main parts of the book have (brief) comparisons with other programming languages.
+
+[R](https://www.r-project.org) is the language used in most comparisons. 
+In general, it is natural to compare R with WL over both OOP and Monadic Programming. 
 
 ## Code
 
@@ -33,38 +60,53 @@ and analyze code with code derived dependency graphs and UML diagrams.
 
 The application and utilization of OOP Design Patterns in WL is given as a discipline to follow using the built-in
 WL functionalities. I.e. without the support or facilitation of any additional code. 
-(In packages or otherwise, as seen in other effort to use OOP in WL.)  
+(Other efforts to use OOP in WL do tend to use supporting code.)  
 
 The application of OOP Design Patterns is exemplified with:
  
  - elements of [`NIntegrate`'s implementation](https://reference.wolfram.com/language/tutorial/NIntegrateOverview.html), and
    
- - the package [AAp2] (that should be compared with [AAp1].)
+ - the package ["GitHubDataObjects.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/Misc/GitHubDataObjects.m), [AAp2], (that should be compared with [AAp1].)
 
 ### Monadic Programming
 
-The proposed style of Monadic Programming in WL is supported with the package [AAp3] that allows monad code generation.
+The proposed style of Monadic Programming in WL is supported with the package 
+["StateMonadCodeGenerator.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/StateMonadCodeGenerator.m),
+[AAp3], that allows monad code generation.
+
+The package 
+["MonadicTracing.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicTracing.m),
+[AAp4], shows:
+ 
+ - how to trace the execution of monad pipelines, and 
+ 
+ - how to delegate the functionalities of a monad to another "decorating" monad. 
 
 ### DSL's
 
-The making of DSL's is facilitated (to a point) with the package [AAp4] that gives the ability to program or generate
-parsers for a wide variety of grammars.
+The making of DSL's is facilitated (to a point) with the package 
+["FunctionalParsers.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/FunctionalParsers.m), 
+[AAp5], that gives the ability to program or generate parsers for a wide variety of grammars. 
  
 ### Dependency graphs
 
-Using WL's reflexivity capabilities are utilized to facilitate the examination and analysis of code with:
+WL's [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)) 
+capabilities are utilized to facilitate the examination and analysis of WL code with:
  
-- a package to make Universal Modeling Language (UML) diagrams, [AAp5], and   
+- a package to make [Universal Modeling Language (UML)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 
+diagrams, [AAp6], and   
 
-- a package to make dependency call graphs, [AAp6].
+- a package to make dependency call graphs, [AAp7].
 
 ## Videos
 
-Below are given links to couple of videos with presentations of mine that discuss the central topics in this book. 
+Below are given links to a few videos with presentations that discuss the central topics in this book. 
 
 - ["Object-Oriented Design Patterns"](https://www.youtube.com/watch?v=4Q6hOx63b08).
 
 - ["Monadic Programming: With Application to Data Analysis, Machine Learning and Language Processing"](https://www.youtube.com/watch?v=_cIFA5GHF58).
+
+- ["Voice-Grammar-Compute-Communicate: Take Control of Your Health Data"](https://www.youtube.com/watch?v=_rI1RxkeAcA).
 
 ## Additional comments
 
@@ -81,7 +123,7 @@ This is largely because:
  
   - the "data science industry" increasingly relies more on the functional programming paradigm;
   
-  - I program in R (and R has a nice OOP system);
+  - I program most of the time in R (and R has a nice OOP system);
   
   - the use of monadic programming provides a lot of the benefits of OOP Design Patterns.
    
@@ -91,7 +133,7 @@ This is largely because:
 
 ## References
 
-### OOP Design pattern related
+### OOP Design patterns related
 
 [CA1] Christopher Alexander et al., The Oregon Experiment, Oxford University Press, 1975.
 
@@ -113,26 +155,34 @@ This is largely because:
 
 ### Monadic Programming related
 
+[PW1] Philip Wadler, "The essence of functional programming", (1992), 
+19'th Annual Symposium on Principles of Programming Languages, Albuquerque, New Mexico, January 1992.
+
 [AAp3] Anton Antonov,
 [State monad code generator Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/StateMonadCodeGenerator.m),
 (2017),
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
+[AAp4] Anton Antonov,
+[Monadic tracing Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicTracing.m),
+(2017),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
 ### DSL making related
 
-[AAp4] Anton Antonov,
+[AAp5] Anton Antonov,
 [Functional parsers Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/FunctionalParsers.m),
 (2014),
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
 ### Code analysis related
 
-[AAp5] Anton Antonov, 
+[AAp6] Anton Antonov, 
 [UML Diagram Generation Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/Misc/UMLDiagramGeneration.m),
 (2016),
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
-[AAp6] Anton Antonov,
+[AAp7] Anton Antonov,
 [Call graph generation for context functions Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/Misc/CallGraph.m),
 (2018),
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
