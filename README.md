@@ -22,7 +22,7 @@ This book primary goal is to give concrete technical guidance for the applicatio
 [WL](https://en.wikipedia.org/wiki/Wolfram_Language) 
 of 
 [OOP Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns),
-[Monadic programming](https://en.wikipedia.org/wiki/Monad_(functional_programming).
+[Monadic programming](https://en.wikipedia.org/wiki/Monad_(functional_programming)).
 Additional goals are to give directions for making
 [DSL's](https://en.wikipedia.org/wiki/Domain-specific_language)
 and analyze code with code derived dependency graphs and UML diagrams.
