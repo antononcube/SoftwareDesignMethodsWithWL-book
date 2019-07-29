@@ -31,9 +31,14 @@ and analyze code with code derived dependency graphs and UML diagrams.
 
 ## What to read?
 
-Except Part 1 and Part 6 all other parts can be read independently.
+Generally speaking, this book assumes a certain level of programming and mathematical maturity of the readers
+and (post-beginner to) intermediate level mastery of WL.
 
-If you are not familiar with OOP and Design Patterns it is better to skip Part 2, "Object Oriented Programming Design Patterns".
+Part 1, "Overview and general directions", overviews and discusses the relationships between the different
+topics and material of this book. (This README file is the same as the "Overview" chapter. )
+
+Part 2, "Object Oriented Programming Design Patterns", should be of interest to readers who know and have applied
+OOP Design Patterns. For readers not familiar with OOP and Design Patterns it is better to skip Part 2.
 The rest of the book -- Monadic Programming, DSL's, call graphs -- is largely independent of Part 2.
 
 Part 3, "Monadic Programming", gives all theoretical knowledge and practical know-how to design and use software monads.
@@ -42,10 +47,12 @@ A good preliminary read for Part 3 is [PW1].
 Part 4, "Domain Specific Languages", has a DSL making overview chapter that is an easy read. 
 The rest of the Part 4 chapters are more technical.
 
-Part 5, "Additional topics", has chapters that might of general interest and although related
+Part 5, "Additional topics", has chapters that might be of general interest and although related
 to the rest of the book largely independent from it.
 
 Part 6, "Example applications", discusses non-trivial examples of utilizing OOP Design Patterns and Monadic Programming. 
+
+Except Part 6 all other book parts can be read independently.
 
 ## Comparisons with other programming languages
 
@@ -76,7 +83,7 @@ The proposed style of Monadic Programming in WL is supported with the package
 
 The package 
 ["MonadicTracing.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicTracing.m),
-[AAp4], shows:
+[AAp4], demonstrates:
  
  - how to trace the execution of monad pipelines, and 
  
