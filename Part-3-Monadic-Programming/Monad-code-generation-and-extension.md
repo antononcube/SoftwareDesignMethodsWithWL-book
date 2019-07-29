@@ -1,17 +1,9 @@
 # Monad code generation and extension
 
-## ... in Mathematica / Wolfram Language
-
-Anton Antonov   
-[MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com)   
-[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction)   
-[MathematicaVsR at GitHub](https://github.com/antononcube/MathematicaVsR/tree/master/Projects)   
-June 2017
-
 ## Introduction
 
-This document aims to introduce monadic programming in Mathematica / Wolfram Language (WL) in a concise and code-direct manner. 
-The core of the monad codes discussed is simple, derived from the fundamental principles of Mathematica / WL.
+This chapter aims to introduce monadic programming in WL in a concise and code-direct manner. 
+The core of the monad codes discussed is simple, derived from the fundamental principles of WL.
 
 The usefulness of the monadic programming approach manifests in multiple ways. Here are a few we are interested in:
 
@@ -21,7 +13,7 @@ The usefulness of the monadic programming approach manifests in multiple ways. H
 
 Speaking informally,
 
-- Monad programming provides an interface that allows interactive, dynamic creation and change of sequentially structured computations with polymorphic and context-aware behavior.
+- Monad Programming provides an interface that allows interactive, dynamic creation and change of sequentially structured computations with polymorphic and context-aware behavior.
 
 The theoretical background provided in this document is given in the Wikipedia article on Monadic programming, [[Wk1](https://en.wikipedia.org/wiki/Monad_(functional_programming))], 
 and the article ["The essence of functional programming"](https://page.mi.fu-berlin.de/scravy/realworldhaskell/materialien/the-essence-of-functional-programming.pdf) by Philip Wadler, [[H3](https://page.mi.fu-berlin.de/scravy/realworldhaskell/materialien/the-essence-of-functional-programming.pdf)]. 
@@ -33,12 +25,14 @@ The general monad structure can be seen as:
 2) a fundamental programming construct (similar to "class" in object-oriented programming);
 3) an interface for software types to have implementations of.
 
-In this document we treat the monad structure as a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern), [[Wk3](https://en.wikipedia.org/wiki/Software_design_pattern)]. 
-(After reading [H3] point 2 becomes more obvious. A similar in spirit, minimalistic approach to [Object-oriented Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) is given in [[AA1](https://github.com/antononcube/MathematicaForPrediction/blob/master/MarkdownDocuments/Implementation-of-Object_Oriented-Programming-Design-Patterns-in-Mathematica.md)].)
+In this chapter (and book) we treat the monad structure as a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern), [[Wk3](https://en.wikipedia.org/wiki/Software_design_pattern)]. 
+(After reading [H3] point 2 becomes more obvious. 
+A similar in spirit, minimalistic approach to [OOP Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) is given in 
+[Part 2](https://github.com/antononcube/SoftwareDesignMethodsWithWL-book/tree/master/Part-2-Object-Oriented-Programming-Design-Patterns).
 
 We do not deal with types for monads explicitly, we generate code for monads instead. One reason for this is the "monad design pattern" perspective; another one is that in Mathematica / WL the notion of algebraic data type is not needed -- pattern matching comes from the core "book of replacement rules" principle.
 
-The rest of the document is organized as follows. 
+The rest of the chapter is organized as follows. 
 
 **1.** *Fundamental sections*
 The section "What is a monad?" gives the necessary definitions. The section "The basic Maybe monad" shows how to program a monad from scratch in Mathematica / WL. 
@@ -601,7 +595,8 @@ Another example is the ClCon pipeline in the sub-section "Monad design" in the p
 
 ## Summary
 
-This document presents a style of using monadic programming in Wolfram Language (Mathematica). The style has some shortcomings, but it definitely provides convenient features for day-to-day programming and in coming up with architectural designs.
+This chapter presents a style of using Monadic Programming in WL. 
+The style has some shortcomings, but it definitely provides convenient features for day-to-day programming and in coming up with architectural designs.
 
 The style is based on WL's basic language features. As a consequence it is fairly concise and produces light overhead.
 

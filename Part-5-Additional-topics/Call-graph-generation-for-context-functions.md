@@ -1,14 +1,8 @@
 # Call graph generation for context functions
 
-Anton Antonov   
-[MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com)   
-[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction)   
-[MathematicaVsR at GitHub](https://github.com/antononcube/MathematicaVsR)  
-January 2019
-
 ## In brief
 
-This document describes the package 
+This chapter describes the package 
 [CallGraph.m](https://github.com/antononcube/MathematicaForPrediction/blob/master/Misc/CallGraph.m) 
 for making call graphs between the functions that belong to specified contexts.
 
@@ -19,7 +13,7 @@ have tooltips with function usage messages.
 ## General design
 
 The call graphs produced by the main package function `CallGraph` are assumed to be used for studying or refactoring 
-of large code bases written with Mathematica / Wolfram Language.
+of large code bases written with WL.
 
 The argument of `CallGraph` is a context string or a list of context strings.
 
