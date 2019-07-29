@@ -1,0 +1,69 @@
+
+* TODO Software Design Methods with Wolfram Language [0%] [0/8]
+** TODO GitHub [80%] [4/5]
+- [X] Make a repository.
+- [X] Commit raw chapters (Markdown).
+- [ ] Diagrams.
+  - Commit introduction-related diagrams.
+  - Decide how to handle the diagrams.
+- [X] org-mode file.
+- [X] Make a comprehensive README.
+  - [X] Mission statement.
+  - [X] Code links.
+  - [X] Video links.
+  - [X] References.
+** TODO Overview and general directions [0%] [0/7]
+- [ ] The big picture.
+- [ ] Which patterns to use?
+- [ ] What next?
+- [ ] The tone and voice of narration
+- [ ] Connections between concepts.
+- [ ] Connections between topics.
+- [ ] Coming up with a software design [0%] [0/3]
+  - /Assumes familiarity with the rest of the material./
+  - [ ] Morphological Analysis application.
+  - [ ] Design a DSL.
+  - [ ] Pretend you are making a conversational agent.
+** TODO Object-Oriented Programming Design Patterns [0%] [0/6]
+- [ ] Theoretical justification.
+- [ ] Closures.
+- [ ] Behavioral patterns.
+- [ ] Structural patterns.
+- [ ] Comparison with R.
+- [ ] Finding Design Patterns in WL.
+  - [ ] Observer is used for the dynamic interface functions.
+  - [ ] Template Method and Strategy in ~NDSolve~ and ~NIntegrate~.
+  - [ ] Interpreter in ~NIntegrate~.
+  - [ ] Decorator and Composite in ~NIntegrate~.
+** TODO Monadic programming [%] [/]
+- [ ] Theory.
+- [ ] State Monad code generation.
+- [ ] Connection to Functional parsers.
+- [ ] Connection to OOP Design Patterns.
+** TODO Domain Specific Languages [0%] [0/3]
+- [ ] Making DSL's overview. 
+- [ ] Extensions and applications of the Interpreter Design Pattern.
+  - [ ] EBNF
+  - [ ] Parsers
+  - [ ] Monads
+- [ ] Comparison of grammar making and parser generation with:
+  - [ ] R,
+  - [ ] Python,
+  - [ ] Raku Perl 6.
+** TODO Additional topics [%] [/]
+- [ ] Graph theory metaphor.
+- [ ] Call graph generation.
+- [ ] UML diagrams generation.
+- [ ] On using global variables.
+- [ ] Doing all these with R.
+** TODO Example applications [0%] [0/7] 
+- [ ] Consider making videos for all examples.
+- [ ] ~NIntegrate~ extensions.
+- [ ] ~NIntegrate~'s ~Method~ option implementation.
+- [ ] GitHub commits plots.
+- [ ] ClCon example (with tracing).
+- [ ] UML generation example.
+- [ ] Call graph example.
+** TODO Communication and proclaims
+*** TODO With Wolfram Research, Inc.
+*** TODO Social networks
