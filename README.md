@@ -97,7 +97,7 @@ The making of DSL's is facilitated (to a point) with the package
  
 ### Dependency graphs
 
-WL's [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)
+WL's [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming))
 capabilities are utilized to facilitate the examination and analysis of WL code with:
  
 - a package to make [Universal Modeling Language (UML)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 
