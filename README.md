@@ -10,7 +10,7 @@ This repository has chapters, code, and organizational materials for the book
 The goal of this book is to show how to apply several popular methodologies for software design with Wolfram Language (WL).
 
 WL is a general, multi-paradigm programming language. WL is mostly a functional programming language, but 
-it also can be used in an procedural and Object-Oriented Programming (OOP) manner. 
+it also can be used in a procedural and Object-Oriented Programming (OOP) manner. 
 Of course, since WL is functional it can be also easily used for the creation of Domain Specific Languages (DSL's). 
 
 This book gives concrete directions how to do OOP, Monadic Programming, and DSL designs with WL. 
@@ -24,7 +24,7 @@ This book primary goal is to give concrete technical guidance for the applicatio
 [WL](https://en.wikipedia.org/wiki/Wolfram_Language) 
 of 
 [OOP Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) and
-[Monadic Programming](https://en.wikipedia.org/wiki/Monad_(functional_programming)).
+[Monadic Programming](https://en.wikipedia.org/wiki/Monad_(functional_programming).
 Additional goals are to give directions for making
 [DSL's](https://en.wikipedia.org/wiki/Domain-specific_language)
 and analyze code with code derived dependency graphs and UML diagrams.
@@ -42,7 +42,7 @@ OOP Design Patterns. For readers not familiar with OOP and Design Patterns it is
 The rest of the book -- Monadic Programming, DSL's, call graphs -- is largely independent of Part 2.
 
 Part 3, "Monadic Programming", gives all theoretical knowledge and practical know-how to design and use software monads.
-A good preliminary read for Part 3 is [PW1].
+A good preliminary read for Part 3 is \[PW1\].
 
 Part 4, "Domain Specific Languages", has a DSL making overview chapter that is an easy read. 
 The rest of the Part 4 chapters are more technical.
@@ -79,11 +79,11 @@ The application of OOP Design Patterns is exemplified with:
 
 The proposed style of Monadic Programming in WL is supported with the package 
 ["StateMonadCodeGenerator.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/StateMonadCodeGenerator.m),
-[AAp3], that allows monad code generation.
+\[AAp3\], that allows monad code generation.
 
 The package 
 ["MonadicTracing.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicTracing.m),
-[AAp4], demonstrates:
+\[AAp4\], demonstrates:
  
  - how to trace the execution of monad pipelines, and 
  
@@ -93,21 +93,21 @@ The package
 
 The making of DSL's is facilitated (to a point) with the package 
 ["FunctionalParsers.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/FunctionalParsers.m), 
-[AAp5], that gives the ability to program or generate parsers for a wide variety of grammars. 
+\[AAp5\], that gives the ability to program or generate parsers for a wide variety of grammars. 
  
 ### Dependency graphs
 
-WL's [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)) 
+WL's [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)
 capabilities are utilized to facilitate the examination and analysis of WL code with:
  
 - a package to make [Universal Modeling Language (UML)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 
-diagrams, [AAp6], and   
+diagrams, \[AAp6\], and   
 
-- a package to make dependency call graphs, [AAp7].
+- a package to make dependency call graphs, \[AAp7\].
 
 ## Videos
 
-Below are given links to a few videos with presentations that discuss the central topics in this book. 
+Below are given links to several videos with presentations that discuss the central topics in this book. 
 
 - ["Object-Oriented Design Patterns"](https://www.youtube.com/watch?v=4Q6hOx63b08).
 
