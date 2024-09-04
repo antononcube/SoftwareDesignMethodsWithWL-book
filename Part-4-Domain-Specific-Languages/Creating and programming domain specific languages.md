@@ -1,5 +1,7 @@
 
-In this chapter are given provide links to documents, packages, blog posts, and discussions for creating and utilizing Domain Specific Languages (DSL's). 
+## Introduction
+
+In this chapter are given links to documents, packages, blog posts, and discussions for creating and utilizing Domain Specific Languages (DSL's). 
 A few DSL's are discussed in the other chapters of this book part. 
 This chapter provides a more general, higher level view on the application and creation of DSL's. 
 The concrete examples are with WL, but the steps are general and can be done with any programming languages and tools.
@@ -98,7 +100,7 @@ Load the package:
 
      Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/FunctionalParsers.m"]
 
-Give an EBNF description of a DSL for food craviings:
+Give an EBNF description of a DSL for food cravings:
 
     ebnfCode = "
       <lovefood> = <subject> , <loveverb> , <object-spec> <@ LoveFood[Flatten[#]]& ;
