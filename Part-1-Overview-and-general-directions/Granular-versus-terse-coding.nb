@@ -1,0 +1,631 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14135,        623]
+NotebookOptionsPosition[     11322,        574]
+NotebookOutlinePosition[     11750,        591]
+CellTagsIndexPosition[     11707,        588]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.9344444000116997`*^9, 
+  3.934444402172282*^9}},ExpressionUUID->"32bede39-fec6-4072-95c9-\
+12e475fb2e06"],
+
+Cell[TextData[{
+ "This is a nicely formulated and stimulating question. The answer of course \
+is ",
+ ButtonBox["\"Mu\"",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://c2.com/cgi-bin/wiki?MuAnswer"], None}],
+ " . (Here is the official ",
+ ButtonBox["\"Mu\"",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Mu_(negative)#The_Mu-koan)"], None},
+  ButtonNote->"https://en.wikipedia.org/wiki/Mu_(negative)#The_Mu-koan)"],
+ " link.)"
+}], "Text",
+ CellChangeTimes->{{3.9344445015043707`*^9, 
+  3.934444540087721*^9}},ExpressionUUID->"89f2c7a0-397b-4a15-9f66-\
+457bf1c5ee08"],
+
+Cell["\<\
+Usually when we cannot answer a question in the terms it is asked we extend \
+the paradigm. (E.g. coming up with complex numbers. Or getting enlightened. \
+Or bringing straw men.) So, what follows is my view of how the opposed in the \
+question perspectives can be resolved. For simplicity of the explanations I \
+both over-simplify and over-exaggerate.\
+\>", "Text",ExpressionUUID->"113895d2-7654-403e-97c5-4484d591a64f"],
+
+Cell["\<\
+The names \"Leonid\" and \"Mr. Wizard\" are used to designate code producing \
+agents as described in the question. Those names should not be seen as \
+literal references to the programming activities of the corresponding persons.\
+\>", "Text",ExpressionUUID->"1963305d-3cb9-4e2c-a125-db560bd799e1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Diagnosing the dichotomy", "Section",ExpressionUUID->"522492d1-7b5f-4947-8159-0366608eeee7"],
+
+Cell["\<\
+In Object-Oriented Programming (OOP) languages the key concept is reuse. We \
+do not want to have the domino effect when changing parts of the code because \
+of new understanding of the problem domain the code operates in.
+That is why we encapsulate behavior in objects, etc. We can say that modeling \
+in OOP is with an entity centric language: the entities are objects and they \
+exchange messages. Leonid's breakdown of functions can be seen to come from \
+similar considerations (with a structural programming flavor).\
+\>", "ItemNumbered",
+ CellChangeTimes->{
+  3.934444851325142*^9},ExpressionUUID->"f4cd76b1-40ea-45ed-bd4f-\
+d4b5bbb5cd8a"],
+
+Cell["\<\
+In Functional Programming (FP) languages we have the ability -- and we are \
+enticed -- to refine our code iteratively until we derive essentially a new \
+language that fits the problem domain of our code. FP provides modeling with \
+a verb centric language. The valency of the verbs can be used to make new \
+verbs, etc. Fundamental understanding of the problem domain brings the \
+derivation of new verbs. Mr. Wizard's coding style comes from that \
+perspective.\
+\>", "ItemNumbered",ExpressionUUID->"acb49141-d535-4f57-b274-4121a3f562e2"],
+
+Cell["\<\
+A person would prefer one or the other approach based on person's native \
+language and scientific, engineering, or mathematical background and the \
+audience. For example, chemists would prefer OOP (and flow charts) because \
+they study processes of matter changing states. A mathematician might select \
+different styles when communicating through code to (i) other mathematicians \
+in academia, or (ii) software engineers in large companies.\
+\>", "ItemNumbered",ExpressionUUID->"6c4a19aa-3cf0-4312-88b8-385cd694e6b9"],
+
+Cell[TextData[{
+ "The",
+ " ",
+ "two",
+ " ",
+ "approaches",
+ " ",
+ "should",
+ " ",
+ "not",
+ " ",
+ "be",
+ " ",
+ "just",
+ " ",
+ "contrasted",
+ " ",
+ "but",
+ " ",
+ "seen",
+ " ",
+ "as",
+ " ",
+ "dual.",
+ " ",
+ "For",
+ " ",
+ "example,",
+ " ",
+ "consider",
+ " ",
+ "a",
+ " ",
+ "graph",
+ " ",
+ "G",
+ " ",
+ "in",
+ " ",
+ "which",
+ " ",
+ "the",
+ " ",
+ "nodes",
+ " ",
+ "are",
+ " ",
+ "entities",
+ " ",
+ "and",
+ " ",
+ "the",
+ " ",
+ "edges",
+ " ",
+ "are",
+ " ",
+ "messages",
+ " ",
+ "exchanged",
+ " ",
+ "by",
+ " ",
+ "the",
+ " ",
+ "entities.",
+ " ",
+ "This",
+ " ",
+ "graph",
+ " ",
+ "corresponds",
+ " ",
+ "to",
+ " ",
+ "OOP.",
+ " ",
+ "Now",
+ " ",
+ "consider",
+ " ",
+ "the",
+ " ",
+ ButtonBox["line graph",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Line_graph"], None}],
+ " ",
+ "L(G)",
+ " ",
+ "in",
+ " ",
+ "which",
+ " ",
+ "the",
+ " ",
+ "edges",
+ " ",
+ "of",
+ " ",
+ "G",
+ " ",
+ "become",
+ " ",
+ "nodes",
+ " ",
+ "and",
+ " ",
+ "the",
+ " ",
+ "nodes",
+ " ",
+ "of",
+ " ",
+ "G",
+ " ",
+ "become",
+ " ",
+ "edges.",
+ " ",
+ "That",
+ " ",
+ "L(G)",
+ " ",
+ "graph",
+ " ",
+ "corresponds",
+ " ",
+ "to",
+ " ",
+ "FP."
+}], "ItemNumbered",ExpressionUUID->"4338e909-b0fa-444a-b06b-a2d9dcb1fc22"],
+
+Cell["\<\
+Leonid does FP by using L(G) i.e. by seeing functions as objects. Mr. Wizard \
+does FP using G but seeing edge paths not vertices and links between them.\
+\>", "ItemNumbered",ExpressionUUID->"f3cecd9e-3806-4388-b970-85c03d9bfd51"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Proposed cure", "Section",ExpressionUUID->"7bc3900c-ec52-4202-9e24-a403536ae3c5"],
+
+Cell["\<\
+One way to address the opposing forces of the two perspectives is to factor \
+out the reuse concern from the brevity and simplicity of implementation \
+concern.\
+\>", "Text",ExpressionUUID->"6ce4ec6d-1e3c-4c2a-9d66-e5134445c71e"],
+
+Cell["\<\
+One way do this is to have a Domain Specific Language (DSL) that is easy to \
+use and understand. Say, a DSL close to the natural language of the intended \
+users. The DSL will bring what Leonid wants, the interpreter of the DSL would \
+bring code what Mr. Wizard wants. (And if done right Mr. Wizard might enjoy \
+reading it.)\
+\>", "Text",ExpressionUUID->"9f1e7c8c-6378-43a1-a2ac-5b4b1f569109"],
+
+Cell[TextData[{
+ "This",
+ " ",
+ "can",
+ " ",
+ "be",
+ " ",
+ "facilitated",
+ " ",
+ "with",
+ " ",
+ "different",
+ " ",
+ "tools.",
+ " ",
+ "Below",
+ " ",
+ "I",
+ " ",
+ "demonstrate",
+ " ",
+ "the",
+ " ",
+ "use",
+ " ",
+ "of",
+ " ",
+ ButtonBox["Functional Parsers",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://mathematicaforprediction.wordpress.com/2014/02/13/natural-\
+language-processing-with-functional-parsers/"], None}],
+ " ",
+ "and",
+ " ",
+ "the",
+ " ",
+ "OOP",
+ " ",
+ "Design",
+ " ",
+ "Pattern",
+ " ",
+ ButtonBox["Interpreter",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Interpreter_pattern"], None}],
+ " ",
+ "."
+}], "Text",ExpressionUUID->"373279f1-d545-44a8-a5d4-4dc647f37079"],
+
+Cell[TextData[{
+ "The",
+ " ",
+ "code",
+ " ",
+ "in",
+ " ",
+ ButtonBox["this answer of mine",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://mathematica.stackexchange.com/a/114846/34008"], None}],
+ " ",
+ "illustrates",
+ " ",
+ "fairly",
+ " ",
+ "well",
+ " ",
+ "\"a",
+ " ",
+ "DSL",
+ " ",
+ "close",
+ " ",
+ "to",
+ " ",
+ "the",
+ " ",
+ "natural",
+ " ",
+ "language",
+ " ",
+ "of",
+ " ",
+ "the",
+ " ",
+ "intended",
+ " ",
+ "users\"",
+ " ",
+ "for",
+ " ",
+ "programming",
+ " ",
+ "tasks."
+}], "Text",ExpressionUUID->"911810b7-e4e2-4862-bb10-8c3932b0b458"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",ExpressionUUID->"88edbc54-9736-493c-8626-b35b8273d22e"],
+
+Cell[TextData[{
+ "Below",
+ " ",
+ "is",
+ " ",
+ "(another)",
+ " ",
+ "simple",
+ " ",
+ "example",
+ " ",
+ "that",
+ " ",
+ "shows",
+ " ",
+ "separated",
+ " ",
+ "and",
+ " ",
+ "reusable",
+ " ",
+ "formulation",
+ " ",
+ "in",
+ " ",
+ "Leonid's",
+ " ",
+ "manner,",
+ " ",
+ "and",
+ " ",
+ "coding",
+ " ",
+ "in",
+ " ",
+ "Mr.",
+ " ",
+ "Wizard's",
+ " ",
+ "manner.",
+ " ",
+ "(Also",
+ " ",
+ "see",
+ " ",
+ ButtonBox["this answer of mine",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://mathematica.stackexchange.com/a/110129/34008"], None}],
+ " ",
+ "about",
+ " ",
+ "DSLs",
+ " ",
+ "design",
+ " ",
+ "and",
+ " ",
+ "application",
+ " ",
+ "in",
+ " ",
+ "Mathematica.)"
+}], "Text",ExpressionUUID->"4ad5d7e8-82aa-4ead-b789-224437114da2"],
+
+Cell["\<\
+The coding style of Leonid is used to come up with the EBNF grammar.\
+\>", "Item",ExpressionUUID->"c179d96f-346f-4093-8658-6d7300bbd012"],
+
+Cell["\<\
+The coding style of Mr. Wizard is used in both the EBNF grammar rules \
+formulation and under the hood of the parser generation implementation.\
+\>", "Item",ExpressionUUID->"012f27a6-cb44-4524-8728-0fdcee0770fb"],
+
+Cell[TextData[{
+ "For",
+ " ",
+ "the",
+ " ",
+ "former",
+ " ",
+ "see",
+ " ",
+ "the",
+ " ",
+ "functions",
+ " ",
+ "applied",
+ " ",
+ "at",
+ " ",
+ "the",
+ " ",
+ "end",
+ " ",
+ "of",
+ " ",
+ "some",
+ " ",
+ "of",
+ " ",
+ "the",
+ " ",
+ "grammar",
+ " ",
+ "rules,",
+ " ",
+ "after",
+ " ",
+ "the",
+ " ",
+ "characters",
+ " ",
+ "\"<@\".",
+ " ",
+ "For",
+ " ",
+ "the",
+ " ",
+ "latter",
+ " ",
+ "see",
+ " ",
+ "the",
+ " ",
+ "article",
+ " ",
+ ButtonBox["\"Functional Parsers\" by Fokker",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.staff.science.uu.nl/~fokke101/article/parsers/"], None}],
+ " ",
+ "--",
+ " ",
+ "it",
+ " ",
+ "is",
+ " ",
+ "exactly",
+ " ",
+ "in",
+ " ",
+ "the",
+ " ",
+ "style",
+ " ",
+ "Mr.",
+ " ",
+ "Wizard",
+ " ",
+ "likes.",
+ " ",
+ "(My",
+ " ",
+ "implementation",
+ " ",
+ ButtonBox["FunctionalParsers.m",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/antononcube/MathematicaForPrediction/blob/master/\
+FunctionalParsers.m"], None}],
+ " ",
+ "is",
+ " ",
+ "messier",
+ " ",
+ "since",
+ " ",
+ "it",
+ " ",
+ "was",
+ " ",
+ "written",
+ " ",
+ "with",
+ " ",
+ "an",
+ " ",
+ "older",
+ " ",
+ "Mathematica",
+ " ",
+ "version.)"
+}], "Text",ExpressionUUID->"c0a1fa89-9437-4e04-b371-792f9ded43c4"],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{"URL", "[", "\"\<http://i.stack.imgur.com/kZswq.png\>\"", "]"}], 
+  "]"}]], "Input",ExpressionUUID->"2e7cc499-acbf-4f7a-987b-a5bfb40b47ef"],
+
+Cell["\<\
+To be clear, this example shows that the two approaches can be both used by a \
+higher abstraction layer. Mr. Wizard's approach can be tucked in into an \
+interpreter and Leonid's approach would require users to program with clear \
+natural language commands that can be decomposed into/within context free \
+grammars. Mr. Wizard's approach facilitates the parsing and interpretation of \
+those grammars, but otherwise is not visible to the users.\
+\>", "Text",ExpressionUUID->"ed4bd502-191b-42c3-b50f-d54685cb668c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Section",ExpressionUUID->"44a92c02-bff4-478d-bace-cdc7f614b547"],
+
+Cell["\<\
+From the above it is clear that with the right attitude, automated tools, and \
+smart computers Mr. Wizard's perspective becomes obsolete to humans, and \
+Leonid's perspective endures, it bubbles up to the end users.\
+\>", "Text",ExpressionUUID->"11eaf7b1-9435-4d8e-a596-69940c4b0250"],
+
+Cell["\<\
+(Sorry if this conclusion seems too pessimistic. In my defense we \
+increasingly live in a world that is all about outsourcing, offshoring, \
+automation, and \"the robots are coming\"...)\
+\>", "Text",ExpressionUUID->"5eca1933-ce6e-495e-98a5-65893c390feb"]
+}, Open  ]]
+},
+WindowSize->{1349, 1136},
+WindowMargins->{{Automatic, 1014}, {Automatic, 13}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3a283cd1-f45c-4e23-a529-5fd21099aa30"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 159, 3, 82, "Section",ExpressionUUID->"32bede39-fec6-4072-95c9-12e475fb2e06"],
+Cell[738, 27, 614, 17, 42, "Text",ExpressionUUID->"89f2c7a0-397b-4a15-9f66-457bf1c5ee08"],
+Cell[1355, 46, 432, 6, 96, "Text",ExpressionUUID->"113895d2-7654-403e-97c5-4484d591a64f"],
+Cell[1790, 54, 309, 4, 69, "Text",ExpressionUUID->"1963305d-3cb9-4e2c-a125-db560bd799e1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2136, 63, 98, 0, 82, "Section",ExpressionUUID->"522492d1-7b5f-4947-8159-0366608eeee7"],
+Cell[2237, 65, 656, 11, 113, "ItemNumbered",ExpressionUUID->"f4cd76b1-40ea-45ed-bd4f-d4b5bbb5cd8a"],
+Cell[2896, 78, 551, 8, 88, "ItemNumbered",ExpressionUUID->"acb49141-d535-4f57-b274-4121a3f562e2"],
+Cell[3450, 88, 531, 7, 88, "ItemNumbered",ExpressionUUID->"6c4a19aa-3cf0-4312-88b8-385cd694e6b9"],
+Cell[3984, 97, 1190, 131, 88, "ItemNumbered",ExpressionUUID->"4338e909-b0fa-444a-b06b-a2d9dcb1fc22"],
+Cell[5177, 230, 240, 3, 38, "ItemNumbered",ExpressionUUID->"f3cecd9e-3806-4388-b970-85c03d9bfd51"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5454, 238, 87, 0, 82, "Section",ExpressionUUID->"7bc3900c-ec52-4202-9e24-a403536ae3c5"],
+Cell[5544, 240, 239, 4, 69, "Text",ExpressionUUID->"6ce4ec6d-1e3c-4c2a-9d66-e5134445c71e"],
+Cell[5786, 246, 406, 6, 96, "Text",ExpressionUUID->"9f1e7c8c-6378-43a1-a2ac-5b4b1f569109"],
+Cell[6195, 254, 729, 49, 42, "Text",ExpressionUUID->"373279f1-d545-44a8-a5d4-4dc647f37079"],
+Cell[6927, 305, 550, 45, 42, "Text",ExpressionUUID->"911810b7-e4e2-4862-bb10-8c3932b0b458"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7514, 355, 81, 0, 82, "Section",ExpressionUUID->"88edbc54-9736-493c-8626-b35b8273d22e"],
+Cell[7598, 357, 715, 63, 69, "Text",ExpressionUUID->"4ad5d7e8-82aa-4ead-b789-224437114da2"],
+Cell[8316, 422, 147, 2, 38, "Item",ExpressionUUID->"c179d96f-346f-4093-8658-6d7300bbd012"],
+Cell[8466, 426, 222, 3, 38, "Item",ExpressionUUID->"012f27a6-cb44-4524-8728-0fdcee0770fb"],
+Cell[8691, 431, 1207, 109, 96, "Text",ExpressionUUID->"c0a1fa89-9437-4e04-b371-792f9ded43c4"],
+Cell[9901, 542, 188, 3, 36, "Input",ExpressionUUID->"2e7cc499-acbf-4f7a-987b-a5bfb40b47ef"],
+Cell[10092, 547, 526, 7, 96, "Text",ExpressionUUID->"ed4bd502-191b-42c3-b50f-d54685cb668c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10655, 559, 84, 0, 82, "Section",ExpressionUUID->"44a92c02-bff4-478d-bace-cdc7f614b547"],
+Cell[10742, 561, 295, 4, 87, "Text",ExpressionUUID->"11eaf7b1-9435-4d8e-a596-69940c4b0250"],
+Cell[11040, 567, 266, 4, 87, "Text",ExpressionUUID->"5eca1933-ce6e-495e-98a5-65893c390feb"]
+}, Open  ]]
+}
+]
+*)
+
