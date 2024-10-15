@@ -128,3 +128,183 @@ classDiagram
     Strategy <|.. ConcreteStrategyB
     Strategy <|.. ConcreteStrategyC
 ```
+
+## Decorator
+
+```mathematica
+Clear[Component, ConcreteComponent, ConcreateDecoratorA, ConcreateDecoratorB, Decorator];
+
+SELFHEAD = Component;
+Component[d_]["Operation"[]] := Print["error"]
+
+Decorator[d_, component_][s_] := Block[{SELFHEAD = Component}, component[s]]
+Decorator[d_, component_]["Operation"[]] := (Print["Decorator:", Head[component]]; component["Operation"[]]);
+
+ConcreteComponent[d_][s_] := Block[{SELFHEAD = ConcreteComponent}, Component[d][s]]
+ConcreteComponent[d_]["Operation"[]] := Total[Flatten@{d}];
+
+ConcreateDecoratorA[d_, component_][s_] := Block[{SELFHEAD = ConcreateDecoratorA}, Decorator[d, component][s]]
+ConcreateDecoratorA[d_, component_]["Operation"[]] := Decorator[d, component]["Operation"[]]^d[[1]];
+ConcreateDecoratorA[d_, component_]["AddedOperation"[]] := Decorator[d, component]["Operation"[]]^2;
+
+ConcreateDecoratorB[d_, component_][s_] := Block[{SELFHEAD = ConcreateDecoratorB}, Decorator[d, component][s]]
+ConcreateDecoratorB[d_, component_]["Operation"[]] := 1/Decorator[d, component]["Operation"[]];
+```
+
+```mermaid
+classDiagram
+    class Component {
+        <<abstract>>
+        +d
+        +Operation()
+    }
+    class ConcreteComponent {
+        +operation()
+    }
+    class Decorator {
+        +d
+        +component: Component
+        +Operation()
+    }
+    class ConcreteDecoratorA {
+        +Operation()
+        +AddedOperation()
+    }
+    class ConcreteDecoratorB {
+        +Operation()
+        -addedState
+    }
+    Component <|-- ConcreteComponent
+    Component <|.. Decorator
+    Decorator <|-- ConcreteDecoratorA
+    Decorator <|-- ConcreteDecoratorB
+    Decorator *--> Component
+```
+
+## Composite
+
+```mathematica
+Clear[Component, LeafOne, LeafTwo, Composite];
+
+CLASSHEAD = Component;
+Component[d_, sm_]["Submethods"[]] := sm;
+Component[{a_, b_, c_}, sm_]["Add"[obj_]] := CLASSHEAD[{a, b, c}, sm]["Add"[obj]];
+Component[{a_, b_, c_}, sm_]["Remove"[obj_]] := CLASSHEAD[{a, b, c}, sm]["Remove"[obj]]; 
+Component[{a_, b_, c_}, sm_]["GetChild"[i_Integer]] := CLASSHEAD[{a, b, c}, sm]["GetChild"[i]];
+Component[d_, sm_]["Operation"[]] := Print["error"]
+
+LeafOne[d_, sm_][s_] := Block[{CLASSHEAD = LeafOne}, Component[d, sm][s]]
+LeafOne[{a_, b_, c_}, sm_]["Operation"[]] := a;
+
+LeafTwo[d_, sm_][s_] := Block[{CLASSHEAD = LeafTwo}, Component[d, sm][s]]
+LeafTwo[{a_, b_, c_}, sm_]["Operation"[]] := a^b^c;
+
+Composite[d_, sm_][s_] := Block[{CLASSHEAD = Composite}, Component[d, sm][s]]
+Composite[{a_, b_, c_}, sm_]["Add"[obj_]] := Composite[{a, b, c}, Append[sm, obj]];
+Composite[{a_, b_, c_}, sm_]["Remove"[obj_]] := Composite[{a, b, c}, Select[sm, #1 =!= obj &]]; 
+Composite[{a_, b_, c_}, sm_]["GetChild"[i_Integer]] := sm[[i]];
+Composite[{a_, b_, c_}, sm_]["Operation"[]] := Map[#1["Operation"[]] &, sm];
+```
+
+```mermaid
+classDiagram
+    class Component {
+        <<abstract>>
+        +a
+        +b
+        +c
+        +d
+        +Submethods()
+        +Operation()
+        +Add(Component component)
+        +Remove(Component component)
+        +GetChild(int i)
+    }
+    class LeafOne {
+        +Operation()
+    }
+    class LeafTwo {
+        +Operation()
+    }
+    class Composite {
+        +Operation()
+        +Add(Component component)
+        +Remove(Component component)
+        +GetChild(int i)
+    }
+    Component <|-- LeafOne
+    Component <|-- LeafTwo
+    Component <|-- Composite
+    Composite *--> Component
+```
+
+## Observer
+
+```mathematica
+ClearAll[Subject, ConcreteSubject, Observer, ConcreteObserver, ConcreteObserverPlot];
+
+SUBJECTHEAD = Subject;
+(*SetAttributes[Subject,HoldAll]*)
+Subject[id_Symbol]["GetObservers"[]] := SUBJECTHEAD[id]["Observers"];
+Subject[id_Symbol]["Attach"[observer_]] := (SUBJECTHEAD[id]["Observers"] = Append[SUBJECTHEAD[id]["Observers"], observer]);
+Subject[id_Symbol]["Detach"[observer_]] := (SUBJECTHEAD[id]["Observers"] = DeleteCases[SUBJECTHEAD[id]["Observers"], observer]);
+Subject[id_Symbol]["Notify"[]] := Through[(SUBJECTHEAD[id]["Observers"])["Update"[]]];
+
+ConcreteSubject[d___][s_] := Block[{SUBJECTHEAD = ConcreteSubject}, Subject[d][s]];
+ConcreteSubject[id_Symbol, observers_] := Block[{}, ConcreteSubject[id]["Observers"] = observers; ConcreteSubject[id]];
+ConcreteSubject[id_Symbol]["Data"] := {};
+ConcreteSubject[id_Symbol]["GetState"[]] := ConcreteSubject[id]["Data"]; 
+ConcreteSubject[id_Symbol]["SetState"[newstate_]] := (ConcreteSubject[id]["Data"] = newstate);
+
+OBSERVERHEAD = Observer;
+Observer[id_Symbol]["SetSubject"[newsubject_]] := (OBSERVERHEAD[id]["Subject"] = newsubject);
+Observer[id_Symbol]["GetSubject"[]] := OBSERVERHEAD[id]["Subject"];
+
+ConcreteObserver[id_Symbol, subject_] := Block[{}, ConcreteObserver[id]["Subject"] = subject; ConcreteObserver[id]];
+ConcreteObserver[d___][s_] := Block[{OBSERVERHEAD = ConcreteObserver}, Observer[d][s]];
+ConcreteObserver[id_Symbol]["Update"[]] := Grid[{{"observer id", "output"}, {id, ConcreteObserver[id]["GetSubject"[]]["GetState"[]]}}, Dividers -> All];
+
+ConcreteObserverPlot[id_Symbol, subject_] := Block[{}, ConcreteObserverPlot[id]["Subject"] = subject; ConcreteObserverPlot[id]];
+ConcreteObserverPlot[d___][s_] := Block[{OBSERVERHEAD = ConcreteObserverPlot}, Observer[d][s]];
+ConcreteObserverPlot[id_Symbol]["Update"[]] := Grid[{{"observer id", "output"}, {id, Apply[Plot, ConcreteObserverPlot[id]["GetSubject"[]]["GetState"[]]]}}, Dividers -> All];
+```
+
+```mermaid
+classDiagram
+    class Subject {
+        <<abstract>>
+        +id
+        +GetObservers()
+        +Attach(Observer observer)
+        +Detach(Observer observer)
+        +Notify()
+    }
+    class ConcreteSubject {
+        +id
+        +observers
+        +GetState()
+        +SetState(int newstate)
+    }
+
+    class Observer {
+        <<abstract>>
+        +id
+        +SetSubject(newsubject)
+        +GetSubject()
+        +Update()
+    }
+    class ConcreteObserver {
+        +subject: ConcreteSubject
+        +Update()
+    }    
+    class ConcreteObserverPlot {
+        +subject: ConcreteSubject
+        +Update()
+    }
+    
+    Subject <|-- ConcreteSubject
+    Observer <|-- ConcreteObserver
+    Observer <|-- ConcreteObserverPlot
+    ConcreteObserver --> ConcreteSubject
+    Subject --> Observer
+```
