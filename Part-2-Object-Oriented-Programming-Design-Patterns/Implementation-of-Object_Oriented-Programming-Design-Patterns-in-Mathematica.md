@@ -249,7 +249,7 @@ Note that the classes have the same definitions of the "delegated" function memb
     C0[{a_, b_, c_, ___}]["f1"[]] := a + b;
     C0[{a_, b_, c_, ___}]["f2"[]] := a + b + c;
 
-Static inheritance $C0 \hookrightarrow C1:$
+Static inheritance $C0 \rightarrow C1:$
 
     SubValues[C1] = ReplaceRepeated[SubValues[C0], C0 -> C1];
 
@@ -257,7 +257,7 @@ Static inheritance $C0 \hookrightarrow C1:$
     SubValues[C1] = Drop[SubValues[C1], {pos}];
     C1[{a_, b_, c_, ___}]["f1"[]] := a*b;
 
-Static inheritance $C1 \hookrightarrow C2:$
+Static inheritance $C1 \rightarrow C2:$
 
     SubValues[C2] = ReplaceRepeated[SubValues[C1], C1 -> C2];
 
@@ -265,15 +265,15 @@ Static inheritance $C1 \hookrightarrow C2:$
     SubValues[C2] = Drop[SubValues[C2], {pos}];
     C2[{a_, b_, c_, ___}]["f2"[]] := a^b;
 
-pos is for the positions of the overridden methods.
+`pos` is for the positions of the overridden methods.
 
 ## Experiments
 
-Here we define a C2 object:
+Here we define a `C2` object:
 
     obj = C2[{a, b, c}];
 
-Functions borrowed from C0:
+Functions borrowed from `C0`:
 
     obj["Data"[]]
     obj["f0"[]]
@@ -282,13 +282,13 @@ Functions borrowed from C0:
 
     (* a *)
 
-Functions borrowed from C1:
+Functions borrowed from `C1`:
 
     obj["f1"[]]
 
     (* a b *)
 
-And finally genuine the C2 function:
+And finally genuine the `C2` function:
 
     obj["f2"[]]
 
@@ -326,7 +326,7 @@ Here is an algorithm "skeleton" made with Inner:
 
     (* op2[op1[a, x], op1[b, y], op1[c, z]] *)
 
-We can easily derive different algorithms by replacing the symbols op1 and op2 with concrete functions:
+We can easily derive different algorithms by replacing the symbols `op1` and `op2` with concrete functions:
 
     Inner[Times, {a, b, c}, {x, y, z}, Norm@*List]
 
@@ -338,7 +338,7 @@ Alternatively, we can consider varying the data arguments of Inner:
 
     (* op2[op1[Mat[{a[1, 1]}, {a[2, 1]}], Mat[{x[1, 1], x[1, 2]}]], op1[Mat[{b[1, 1]}, {b[2, 1]}], Mat[{y[1, 1], y[1, 2]}]]] *)
 
-These concrete implementations of op1 and op2 provide different functionalities depending on the data types:
+These concrete implementations of `op1` and `op2` provide different functionalities depending on the data types:
 
     Block[{op1, op2},
      op1[x_?AtomQ, y_?AtomQ] := x ** y;
@@ -350,7 +350,7 @@ These concrete implementations of op1 and op2 provide different functionalities 
 
 [![][7]][7]
 
-Note that for \_Mat objects the code above returns the result in MatrixForm.
+Note that for `_Mat` objects the code above returns the result in MatrixForm.
 
 ## UML diagram
 
