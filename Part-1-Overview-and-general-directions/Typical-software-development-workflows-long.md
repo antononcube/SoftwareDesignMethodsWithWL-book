@@ -1,9 +1,35 @@
 # Typical Software Development Workflows
 ### ***Long descriptions***
 
+## Introduction
+
+Different programming approaches are described in this chapter. More comprehensive and detailed information can be found in the references.
+
+The summaries are intended to provide a sufficient understanding of each programming paradigm or method.
+
+An LLM prompt is included in each section to generate step-by-step instructions for the corresponding programming type.
+
 ------
 
 ## Top-down Structural programming
+
+### Summary
+
+The top-down development approach in structured programming involves systematically breaking down a problem into smaller modules for clarity and maintainability. 
+It starts with problem definition, followed by high-level system design and modular decomposition, where the system is divided into manageable components. 
+Each module is specified in detail before designing algorithms using structured principles. 
+The modules are then implemented in code, tested individually, and progressively integrated. 
+The system undergoes comprehensive testing to meet original requirements. 
+Documentation is maintained throughout, and maintenance plans ensure future updates are manageable. 
+The process concludes with reviewing and optimizing the system for improvements.
+
+### LLM prompt
+
+Here is an LLM prompt to generate step-by-step descriptions like the one below:
+
+> Write down the steps of Top-down development as prescribed in Structural Programming.
+
+### Step by step
 
 **Steps of Top-Down Development in Structured Programming:**
 
@@ -76,6 +102,24 @@ By following these steps, developers can systematically design, implement, and t
 
 ## Using Design Patterns (Object-Oriented Programming)
 
+### Summary
+
+Object-Oriented Programming (OOP) development using design patterns involves gathering requirements, analyzing the system, and identifying classes at different abstraction levels. 
+Design patterns are then applied to address common design problems, followed by defining the system architecture and modeling relationships. 
+Detailed design focuses on class internals and interactions, leading to implementation using coding standards and integrating design patterns. 
+Testing ensures the system meets requirements, while deployment involves preparing the environment and training users. 
+Ongoing maintenance includes performance monitoring, bug fixes, and iterative refinement for evolving requirements.
+
+### LLM prompt
+
+Here is an LLM prompt to generate step-by-step descriptions like the one below:
+
+> Write down the steps of Object-Oriented Programmgin (OOP) development using Design Patterns.
+> Make sure mention the step "Discovery of classes."
+> Also, mention the types of classes: analysis, design, implemnetational.
+
+### Step by step
+
 The steps of Object-Oriented Programming (OOP) development using Design Patterns are as follows:
 
 1. **Requirements Gathering and Analysis**:
@@ -134,6 +178,28 @@ By following these steps, incorporating the discovery of classes and the applica
 ------
 
 ## Bottom-up Functional Programming 
+
+### Summary
+
+Functional Programming (FP) development using the bottom-up approach involves iteratively subdividing code, identifying patterns, and creating a Domain Specific Language (DSL) tailored to the problem domain, typically in a LISP-like language. 
+This process includes designing new operators if needed, balancing the use of the DSL with core language expressions, and continuously refining the solution. 
+The unique experience of programming in FP is characterized by brainstorming while coding and persistently re-evaluating the code, which allows for the discovery of more abstract and powerful constructs to solve concrete problems.
+
+### LLM prompt
+
+Here is an LLM prompt to generate step-by-step descriptions like the one below:
+
+> Write down the steps of Functional Programming (FP) development using the Bottom-up principle.
+> Assume a LISP-like FP language is used.
+> Mention how a new Domain Specific Language (DSL) is derived that fits the problem area and with that DSL we write
+> programs that solve the given, more concrete problems.
+> Emphasize the iteration process of subdividing the code into parts, discovering patterns in the code, making the DSL,
+> programming new operators if needed, and stopping after finding the right balance of DSL vs core expressions with it.
+> Mention that brainstorming while coding makes programming FP languages very unique experience, and requires
+> tireless re-evaluation of the code written.
+
+
+### Step-by-step
 
 **Functional Programming (FP) Development Using the Bottom-Up Principle in a LISP-like Language**
 
